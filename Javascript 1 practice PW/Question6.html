@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Question 6</title>
+  </head>
+  <body>
+    <h3>
+      Question 6. You are working on an e-comerce plateform. Write a javascript
+      program that takes the payment method ("credit", "debit" or "paypal") as
+      input and uses a switch statement to determine and print the processing
+      fee associated with each payment method. For example "credit" may have a
+      processing fee of 2% , "debit" 1.5% and "paypal" 3%.
+    </h3>
+
+    <h2 class="text"></h2>
+  </body>
+  <script>
+    let enq = prompt('Enter your card like "credit", "debit" or "paypal"');
+
+    let val;
+
+    switch (enq) {
+      case "credit":
+        let val_cre = parseInt(prompt("Enter your amount: "));
+        let fee_cre = (val_cre * 2) / 100;
+        val = `Your amount is ${val_cre} and tax of 2% is ${fee_cre}`;
+        break;
+      case "debit":
+        let val_deb = parseInt(prompt("Enter your amount: "));
+        let fee_deb = (val_deb * 1.5) / 100;
+        val = `Your amount is ${val_deb} and tax of 1.5% is ${fee_deb}`;
+        break;
+      case "paypal":
+        let val_pay = parseInt(prompt("Enter your amount: "));
+        let fee_pay = (val_pay * 3) / 100;
+        val = `Your amount is ${val_pay} and tax of 3% is ${fee_pay}`;
+        break;
+      default:
+        val = "Enter right card mode.";
+    }
+
+    document.querySelector(".text").innerText = val;
+  </script>
+</html>

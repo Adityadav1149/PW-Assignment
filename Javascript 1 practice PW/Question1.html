@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Question 1</title>
+  </head>
+  <body>
+    <p>
+      Q 1. Write a program that grades students based on their marks. a/ If
+      grater than 90 then A grade. b/ If between 70 to 90 then B grade. c/ If
+      between 50 to 70 then C grade. d/ Below 50 then F grade.
+    </p>
+
+    <script>
+      var math = parseInt(prompt("Enter the marks of Math:"));
+      var eng = parseInt(prompt("Enter the marks of English:"));
+      var hindi = parseInt(prompt("Enter the marks of Hindi:"));
+      var phy = parseInt(prompt("Enter the marks of Physics:"));
+      var chem = parseInt(prompt("Enter the marks of Chemistry:"));
+
+      document.write(`Your Marks in Math: ${math}`);
+      document.write("<br>");
+      document.write(`Your Marks in English: ${eng}`);
+      document.write("<br>");
+      document.write(`Your Marks in Hindi: ${hindi}`);
+      document.write("<br>");
+      document.write(`Your Marks in Physics: ${phy}`);
+      document.write("<br>");
+      document.write(`Your Marks in Chemistry: ${chem}`);
+      document.write("<br>");
+
+      var avg = (math + eng + hindi + phy + chem) / 5;
+
+      var per = `Your percentage is: ${avg} %`;
+      document.write(per);
+      document.write("<br>");
+
+      if (avg > 90) {
+        document.write(`Congratulations! You got Grade A. We proud of you.`);
+        document.write("<br>");
+      } else if (avg <= 90 || 70 < avg) {
+        document.write(`Good! You got Grade B.`);
+        document.write("<br>");
+      } else if (avg <= 70 || 50 < avg) {
+        document.write(`You got Grade C. Better luck next time.`);
+        document.write("<br>");
+      } else if (avg <= 50 || 33 < avg) {
+        document.write(`You got Grade D. Do Work Hard `);
+        document.write("<br>");
+      } else {
+        document.write(`Sorry! You are Fail.`);
+        document.write("<br>");
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Question 8</title>
+  </head>
+  <body>
+    <h3>
+      Question 8. You are creating a program to calculate the sum of numbers.
+      Write a javascript program that takes a positive integer as input and uses
+      and uses a do-while loop to calculate and print the sum of all numbers
+      from 1 to the given integer.
+    </h3>
+
+    <h1 class="text"></h1>
+    <br /><br />
+    <h2 class="result"></h2>
+  </body>
+  <script>
+    let text = parseInt(prompt("Enter the last number from 1: "));
+    document.querySelector(".text").innerText = `The sum of 1 to ${text} is:`;
+
+    sum = 0;
+    i = 1;
+    do {
+      sum += i;
+      i++;
+    } while (i <= text);
+
+    document.querySelector(".result").innerText = `The result is: ${sum}`;
+  </script>
+</html>

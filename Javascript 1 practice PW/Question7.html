@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Question 7</title>
+  </head>
+  <body>
+    <h3>
+      Question 7. You are building a weather application. Write a javascript
+      program that takes the current temperature as input and uses the
+      conditional (ternary) operator to determine and print the weather
+      condition. If the temperature is above 30 deg cel , the condition is "Hot"
+      , otherwise it is "Moderate".
+    </h3>
+
+    <h1 class="deg"></h1>
+    <br /><br />
+    <h2 class="text"></h2>
+  </body>
+  <script>
+    let deg = parseInt(prompt("Enter today's temperature: "));
+    document.querySelector(".deg").innerText = `Today's Tempurature = ${deg}℃
+`;
+
+    let text = deg > 30 ? "It is very Hot." : "It is Moderate.";
+
+    document.querySelector(".text").innerText = text;
+  </script>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Question 4</title>
+  </head>
+  <body>
+    <h3>
+      Question 4. Describe the usage of the commo operator in javascript and
+      provide an example.
+    </h3>
+
+    <h5>
+      Answer : In JavaScript, the comma operator (,), also known as the comma
+      operator, allows you to evaluate multiple expressions, returning the
+      result of the last expression. It is primarily used in places where
+      multiple expressions are expected, such as in variable declarations,
+      function arguments, or loop initializations.
+    </h5>
+  </body>
+  <script>
+    // Example 1: Using comma operator in variable declarations
+    var a = 1,
+      b = 2,
+      c = 3;
+
+    document.write(`Example 1/. Using comma operator in variable declarations.
+      value of a: ${a}, value of b: ${b}, value of c: ${c}`);
+    document.write("<br>");
+
+    // Example 2: Using comma operator in a for loop
+    document.write("Example 2/. Using comma operator in a for loop");
+    document.write("<br>");
+
+    for (var i = 0, j = 10; i < j; i++, j--) {
+      document.write("i: " + i + ", j: " + j + "<br>");
+    }
+
+    // Example 3: Using comma operator in function arguments
+    function exampleFunction(x, y, z) {
+      document.write(
+        `Example 3/. Using comma operator in function arguments.  value of x: ${x}, value of y: ${y}, value of z: ${z}`
+      );
+    }
+
+    exampleFunction(10, 20, 30);
+
+    // Example 4: Using comma operator in a return statement
+    function returnLastValue() {
+      var x = 1,
+        y = 2,
+        z = 3;
+      return x, y, z;
+    }
+
+    document.write(
+      `Example 4/. Using comma operator in a return statement. ${returnLastValue()} `
+    );
+  </script>
+</html>
