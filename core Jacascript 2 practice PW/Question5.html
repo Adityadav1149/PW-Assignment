@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Question 5</title>
+  </head>
+  <body>
+    <!-- Question 5: You are developing a program to manage a list of unique items. Write a javascript program that uses a set to store a collection of unique numbers. Use the Map object to associate each number with its square. Finally, print both the unique numbers and their corresponding squares. -->
+  </body>
+  <script>
+    let uniqueNumber = new Set([5, 4, 3, 4, 5, 2, 6, 7, 9]);
+    let squareMap = new Map();
+
+    uniqueNumber.forEach((number) => {
+      squareMap.set(number, number * number);
+    });
+
+    console.log(`Unique Numbers : ${Array.from(uniqueNumber).join(", ")}`);
+
+    // console.log("Unique Numbers: ");
+    // console.log(Array.from(uniqueNumber).join(", "));
+
+    console.log("\n Number Square Map: ");
+
+    squareMap.forEach((square, number) => {
+      console.log(`${number} : ${square}`);
+    });
+  </script>
+</html>

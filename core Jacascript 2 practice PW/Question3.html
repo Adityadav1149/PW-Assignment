@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Question 3</title>
+  </head>
+  <body>
+    <!-- 
+      Question 3: create a Map to store contact information (name, age, email, location) and implement a function to retrieve contact details by name.
+     -->
+  </body>
+  <script>
+    const storeContact = new Map();
+
+    storeContact.set("Aditya", {
+      age: 33,
+      email: "aditya@gmail.com",
+      location: "Azamgarh",
+    });
+    storeContact.set("Rohit", {
+      age: 17,
+      email: "rohit@gmail.com",
+      location: "Balia",
+    });
+    storeContact.set("Vipin", {
+      age: 73,
+      email: "vipin@gmail.com",
+      location: "Jaunpur",
+    });
+    storeContact.set("Ritika", {
+      age: 23,
+      email: "ritika@gmail.com",
+      location: "Lucknow",
+    });
+    storeContact.set("Modi", {
+      age: 73,
+      email: "modi@gmail.com",
+      location: "Uttar pradesh",
+    });
+    storeContact.set("Yogi", {
+      age: 83,
+      email: "yogi@gmail.com",
+      location: "Gorakhpur",
+    });
+    storeContact.set("Binay", {
+      age: 53,
+      email: "binay@gmail.com",
+      location: "Gazipur",
+    });
+
+    createContect = (name) => {
+      return storeContact.get(name);
+    };
+
+    console.log(createContect("Modi"));
+  </script>
+</html>

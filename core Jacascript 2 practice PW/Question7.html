@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Question 7</title>
+  </head>
+  <body>
+    <!-- 
+    Question 7: Tasks =>
+    A/ Create an object named calculator with methods add, subtract and multiply.
+    B/ Implement the calculate method in the calculator object, which takes an operation ('add', 'subtract' or 'multiply') and two numbers.
+    C/ Use call to perform an addition operation using the calculate method.
+    D/ Use apply to perform a multiplication operation using the calculate method with arguments as an array.
+    E/ Create another object named diacountCalculator with a discount percentage property and a method applyDiscount.
+    F/ Use bind to create a new function calculateDiscount that is bound to the discountCalculator object and can be reused.
+
+   -->
+  </body>
+  <script>
+    //task 1
+    const calculator = {
+      add: function (a, b) {
+        return a + b;
+      },
+      subtract: function (a, b) {
+        return a - b;
+      },
+      multiply: function (a, b) {
+        return a * b;
+      },
+
+      // task 2
+      calculate: function (operation, a, b) {
+        if (operation === "add") {
+          return this.add(a, b);
+        } else if (operation === "subtract") {
+          return this.subtract(a, b);
+        } else if (operation === "multiply") {
+          return this.multiply(a, b);
+        }
+      },
+    };
+
+    // task 3
+    const addResult = calculator.calculate.call(calculator, "add", 5, 8);
+    console.log(`Addition Result : ${addResult}`);
+
+    // task 4
+
+    const multResult = calculator.calculate.apply(calculator, [
+      "multiply",
+      4,
+      8,
+    ]);
+    console.log(`Multiply Result : ${multResult}`);
+
+    //task 5
+
+    const discountCalculator = {
+      discountPercentage: 10,
+      applyDiscount: function (amount) {
+        return amount - (amount * this.discountPercentage) / 100;
+      },
+    };
+
+    //task 6
+
+    const calculateDiscount =
+      discountCalculator.applyDiscount.bind(discountCalculator);
+
+    const discountedAmount = calculateDiscount(12445);
+
+    console.log(`Discounted Amount : ${discountedAmount} `);
+  </script>
+</html>

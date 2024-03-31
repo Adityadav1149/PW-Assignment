@@ -1,0 +1,69 @@
+<!-- 
+  Question 1: Create an arrow function called square that takes a number as an argument and returns its square. Use the arrow function to calculate the square of a given number and display the result.
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Core 2 js Question 1</title>
+  </head>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    h1 {
+      margin: 15px 0px;
+      padding: 15px;
+    }
+
+    #numInput {
+      padding: 8px;
+      font-size: 28px;
+      border-radius: 5px;
+    }
+
+    #clickBtn,
+    #btnReset {
+      padding: 8px;
+      font-size: 28px;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+    }
+
+    #result {
+      padding: 15px;
+      margin: 20px 0px;
+    }
+  </style>
+  <body>
+    <center>
+      <h1>Enter the number and click button for square that number.</h1>
+      <input type="text" id="numInput" placeholder="Enter number" />
+
+      <button id="clickBtn" onclick="forResult()">Click here</button>
+
+      <h2 id="result"></h2>
+      <button id="btnReset" onclick="Resetbtn()">Reset</button>
+    </center>
+  </body>
+  <script>
+    forResult = () => {
+      let num = document.querySelector("#numInput").value;
+      let square = num * num;
+      document.querySelector(
+        "#result"
+      ).innerText = `Square of ${num} is ${square} \n Thank you!`;
+
+      document.querySelector("#numInput").innerText = " ";
+    };
+
+    Resetbtn = () => {
+      document.querySelector("#result").innerText = " ";
+    };
+
+    // forResult();
+  </script>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Question 6</title>
+  </head>
+  <body>
+    <!-- 
+    Question 6: A/ Create a simple javascript function named displayInfo that takes two parameters (name and role) and logs a message.
+    B/ Use call to invoke the displayInfo function with specific arguments.
+    C/ Use apply to invoke the displayInfo function with arguments passed as an array.
+    D/ Create another function named greet that logs a greeting with this context.
+    E/ Use bind to create a new function boundGreet with a specific context and log the greeting.
+   -->
+  </body>
+  <script>
+    const displayInfo = (name, role) => {
+      console.log(`Name: ${name}, Role: ${role}`);
+    };
+
+    displayInfo.call(null, "Aditya", "Frontend Developer");
+
+    displayInfo.apply(null, ["Rohit", "Backend Developer"]);
+
+    function greet() {
+      console.log(`Hello, ${this.name}`);
+    }
+
+    const userName = { name: "Mayank" };
+    const boundGreet = greet.bind(userName);
+    boundGreet();
+  </script>
+</html>
