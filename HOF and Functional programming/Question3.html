@@ -1,0 +1,79 @@
+<!-- You are given an array of expense objects representing monthly expenses. Each object has properties,
+amount and category. Use the map method to create a new array that includes the calculated tax for each
+expense. Assume a tax rate of 10%. -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Question 3</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        box-sizing: border-box;
+      }
+      body {
+        background-color: #414141;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 20px;
+      }
+      h1 {
+        color: azure;
+        text-transform: uppercase;
+        font-size: 50px;
+        margin: 30px 0;
+        padding: 30px 0;
+      }
+      .blink {
+        animation: blinker 1.5s linear infinite;
+        color: red;
+        font-family: sans-serif;
+      }
+
+      @keyframes blinker {
+        50% {
+          opacity: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <marquee
+      width="100%"
+      behavior="scroll"
+      direction="left"
+      class="blink"
+      scrollamount="6"
+      behaviour="alternate"
+      ><h1>Please open console for result.</h1></marquee
+    >
+
+    <img
+      src="https://www.wishesmsg.com/wp-content/uploads/good-day-message.jpg"
+      alt="Have a good day" />
+  </body>
+
+  <script>
+    function calculateTax(expenses) {
+      const tax = 0.1;
+      return expenses.map((item) => {
+        const taxAmount = item.amount * tax;
+        return { ...item, Tax: taxAmount };
+      });
+    }
+
+    let expense = [
+      { amount: 100, category: "Utilities" },
+      { amount: 200, category: "Greceries" },
+      { amount: 50, category: "Entertainment" },
+    ];
+
+    console.log(calculateTax(expense));
+  </script>
+</html>

@@ -1,0 +1,80 @@
+<!-- You have a list of expenses, each with an amount and a category. Now, create a function named
+categorizeExpense that, based on the expense amount, returns either "High Expense" if it's more than 100, or
+"Low Expense" otherwise. Afterward, use this function along with the map method to generate a new array
+called categorizedExpenses, where each element represents the category for the corresponding expense in
+the original list. Finally, print out the categorizedExpenses array. -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Question 6</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        box-sizing: border-box;
+      }
+      body {
+        background-color: #414141;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 20px;
+      }
+      h1 {
+        color: azure;
+        text-transform: uppercase;
+        font-size: 50px;
+        margin: 30px 0;
+        padding: 30px 0;
+      }
+      .blink {
+        animation: blinker 1.5s linear infinite;
+        color: red;
+        font-family: sans-serif;
+      }
+
+      @keyframes blinker {
+        50% {
+          opacity: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <marquee
+      width="100%"
+      behavior="scroll"
+      direction="left"
+      class="blink"
+      scrollamount="6"
+      behaviour="alternate"
+      ><h1>Please open console for result.</h1></marquee
+    >
+
+    <img
+      src="https://www.wishesmsg.com/wp-content/uploads/good-day-message.jpg"
+      alt="Have a good day" />
+  </body>
+
+  <script>
+    function categorizeExpense(expense) {
+      return expense.amount > 100 ? "High Expense" : "Low Expense";
+    }
+
+    let expenses = [
+      { amount: 90, category: "Utilities" },
+      { amount: 200, category: "Groceries" },
+      { amount: 10, category: "Entertainment" },
+      { amount: 150, category: "Utilities" },
+    ];
+
+    const categorizedExpenses = expenses.map(categorizeExpense);
+
+    console.log(categorizedExpenses);
+  </script>
+</html>

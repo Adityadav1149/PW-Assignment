@@ -1,0 +1,84 @@
+<!-- Question 1. You are building an e-commerce website. Write a function that
+calculates the total price of a customer's order. You're given an array of
+items, each with a price property. Use the forEach method to iterate through the
+array and sum up the prices to get the total order amount.  -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>E-commerce website</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        box-sizing: border-box;
+      }
+      body {
+        background-color: #414141;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 20px;
+      }
+      h1 {
+        color: azure;
+        text-transform: uppercase;
+        font-size: 50px;
+        margin: 30px 0;
+        padding: 30px 0;
+      }
+      .blink {
+        animation: blinker 1.5s linear infinite;
+        color: red;
+        font-family: sans-serif;
+      }
+
+      @keyframes blinker {
+        50% {
+          opacity: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <marquee
+      width="100%"
+      behavior="scroll"
+      direction="left"
+      class="blink"
+      scrollamount="6"
+      behaviour="alternate"
+      ><h1>Please open console for result.</h1></marquee
+    >
+
+    <img
+      src="https://www.wishesmsg.com/wp-content/uploads/good-day-message.jpg"
+      alt="Have a good day" />
+  </body>
+
+  <script>
+    const totalPrice = (Product) => {
+      let total = 0;
+      Product.forEach((item) => {
+        total += item.price;
+      });
+
+      return total;
+    };
+
+    const Product = [
+      { name: "laptop", price: 120000 },
+      { name: "mobile", price: 12000 },
+      { name: "KeyBoard", price: 2500 },
+      { name: "Mouse", price: 1200 },
+      { name: "speaker", price: 10000 },
+    ];
+
+    const total = totalPrice(Product);
+    console.log(`Total Price is ${total}`);
+  </script>
+</html>
