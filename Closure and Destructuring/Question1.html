@@ -1,0 +1,79 @@
+<!-- You are building a counter application that tracks the number of times a button is clicked. Implement the
+counter using closure. -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Question 1</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        box-sizing: border-box;
+      }
+      body {
+        background-color: #414141;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 20px;
+      }
+      .container {
+        margin: 20px;
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+      #counterButton {
+        margin: 20px;
+        padding: 10px;
+        font-size: 20px;
+        font-weight: 700;
+        border-radius: 6px;
+        border-style: none;
+      }
+
+      p {
+        font-size: 25px;
+      }
+
+      #count {
+        color: antiquewhite;
+        font-size: 30px;
+        font-weight: 800;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <button id="counterButton">Click me</button>
+      <p>Button clicked <span id="count">0</span> times.</p>
+    </div>
+  </body>
+
+  <script>
+    function createCounter() {
+      let count = 0;
+
+      return function () {
+        count += 1;
+        return count;
+      };
+    }
+
+    const counter = createCounter();
+    const button = document.getElementById("counterButton");
+    const countDisplay = document.getElementById("count");
+
+    button.addEventListener("click", function () {
+      const currentCount = counter();
+      countDisplay.textContent = currentCount;
+    });
+  </script>
+</html>

@@ -1,0 +1,80 @@
+<!-- You have an object representing a customer order with properties orderId, productName, and quantity.
+Use destructuring to extract and print these properties. -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Question 2</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        box-sizing: border-box;
+      }
+      body {
+        background-color: #414141;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 20px;
+      }
+      h1 {
+        color: azure;
+        text-transform: uppercase;
+        font-size: 50px;
+        margin: 30px 0;
+        padding: 30px 0;
+      }
+      .blink {
+        animation: blinker 1.5s linear infinite;
+        color: red;
+        font-family: sans-serif;
+      }
+
+      @keyframes blinker {
+        50% {
+          opacity: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <marquee
+      width="100%"
+      behavior="scroll"
+      direction="left"
+      class="blink"
+      scrollamount="6"
+      behaviour="alternate"
+      ><h1>Please open console for result.</h1></marquee
+    >
+
+    <img
+      src="https://www.wishesmsg.com/wp-content/uploads/good-day-message.jpg"
+      alt="Have a good day" />
+  </body>
+
+  <script>
+    const order = {
+      orderId: "123456",
+      productName: "Laptop",
+      quantity: 2,
+    };
+
+    console.log("without destructuring.....");
+    console.log(`OrderId ${order.orderId}`);
+    console.log(`productName ${order.productName}`);
+    console.log(`Quantity ${order.quantity}`);
+
+    const { orderId, productName, quantity } = order;
+
+    console.log("with destructuring.....");
+    console.log(`OrderId: ${orderId}`);
+    console.log(`productName: ${productName}`);
+    console.log(`Quantity: ${quantity}`);
+  </script>
+</html>

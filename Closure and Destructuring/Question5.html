@@ -1,0 +1,116 @@
+<!-- Continuing the previous coding challenge, now let’s implement the remove item from cart feature. On
+calling the remove item closure function, the specified productId item must be removed from cartItems
+array.Use javascript closures to achieve the output. -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Question 5</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        box-sizing: border-box;
+      }
+      body {
+        background-color: #414141;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 20px;
+      }
+      h1 {
+        color: azure;
+        text-transform: uppercase;
+        font-size: 50px;
+        margin: 30px 0;
+        padding: 30px 0;
+      }
+      .blink {
+        animation: blinker 1.5s linear infinite;
+        color: red;
+        font-family: sans-serif;
+      }
+
+      @keyframes blinker {
+        50% {
+          opacity: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <marquee
+      width="100%"
+      behavior="scroll"
+      direction="left"
+      class="blink"
+      scrollamount="6"
+      behaviour="alternate"
+      ><h1>Please open console for result.</h1></marquee
+    >
+
+    <img
+      src="https://www.wishesmsg.com/wp-content/uploads/good-day-message.jpg"
+      alt="Have a good day" />
+  </body>
+
+  <script>
+    function createCart() {
+      // The cart array is enclosed within this function's scope
+      let cart = [];
+
+      // Function to add an item to the cart
+      function addToCart(item) {
+        // Check if the product already exists in the cart
+        const existingItem = cart.find(
+          (cartItem) => cartItem.productId === item.productId
+        );
+
+        if (existingItem) {
+          // If the product exists, increment the quantity
+          existingItem.quantity += item.quantity;
+        } else {
+          // If the product does not exist, add it to the cart
+          cart.push(item);
+        }
+      }
+
+      // Function to get all items in the cart
+      function getCartItems() {
+        return cart;
+      }
+
+      // Function to remove an item from the cart
+      function removeFromCart(productId) {
+        // Filter out the item with the specified productId
+        cart = cart.filter((cartItem) => cartItem.productId !== productId);
+      }
+
+      // Return the functions to interact with the cart
+      return {
+        addToCart,
+        getCartItems,
+        removeFromCart,
+      };
+    }
+
+    // Create a new cart instance
+    const cart = createCart();
+
+    // Add items to the cart
+    cart.addToCart({ productId: 1, name: "Laptop", quantity: 2, price: 1000 });
+    cart.addToCart({ productId: 2, name: "Mouse", quantity: 2, price: 25 });
+    cart.addToCart({ productId: 3, name: "Keyboard", quantity: 1, price: 50 });
+
+    // Remove an item from the cart
+    cart.removeFromCart(2); // Removes the Mouse from the cart
+
+    // Get the items in the cart
+    console.log(cart.getCartItems());
+  </script>
+</html>

@@ -1,0 +1,93 @@
+<!-- In this coding challenge let's try to implement the cart feature using javascript closure. Using JS closures
+try to create a cart array and return a function to getCartItems. -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Question 3</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        box-sizing: border-box;
+      }
+      body {
+        background-color: #414141;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 20px;
+      }
+      h1 {
+        color: azure;
+        text-transform: uppercase;
+        font-size: 50px;
+        margin: 30px 0;
+        padding: 30px 0;
+      }
+      .blink {
+        animation: blinker 1.5s linear infinite;
+        color: red;
+        font-family: sans-serif;
+      }
+
+      @keyframes blinker {
+        50% {
+          opacity: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <marquee
+      width="100%"
+      behavior="scroll"
+      direction="left"
+      class="blink"
+      scrollamount="6"
+      behaviour="alternate"
+      ><h1>Please open console for result.</h1></marquee
+    >
+
+    <img
+      src="https://www.wishesmsg.com/wp-content/uploads/good-day-message.jpg"
+      alt="Have a good day" />
+  </body>
+
+  <script>
+    function createCart() {
+      // The cart array is enclosed within this function's scope
+      let cart = [];
+
+      // Function to add an item to the cart
+      function addToCart(item) {
+        cart.push(item);
+      }
+
+      // Function to get all items in the cart
+      function getCartItems() {
+        return cart;
+      }
+
+      // Return the functions to interact with the cart
+      return {
+        addToCart,
+        getCartItems,
+      };
+    }
+
+    // Create a new cart instance
+    const cart = createCart();
+
+    // Add items to the cart
+    cart.addToCart({ productId: 1, productName: "Laptop", quantity: 1 });
+    cart.addToCart({ productId: 2, productName: "Mouse", quantity: 2 });
+
+    // Get the items in the cart
+    console.log(cart.getCartItems());
+  </script>
+</html>
