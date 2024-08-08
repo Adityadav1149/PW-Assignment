@@ -1,0 +1,192 @@
+<!-- Yo are developing the error handling mechanism for an online shopping cart application The
+application allows sers to add prodcts to their cart and proceed to checkot Implement error
+handling to address different types of errors that might occr dring the shopping process
+
+A Yo are working on a ser athentication modle for a we+ application Implement error handling for the
+login processCreate a fnction login that simlates the ser login process The fnction shold take the
+sername and password as parameters and throw errors nder certain conditions#
+' If the sername is not provided, throw an error indicating Username is reqired
+' If the password is not provided, throw an error indicating Password is reqired
+' If the sername and password do not match any valid credentials, throw an error indicating Invalid
+sername or password
+Task 1: Add Prodct to Cart Bnction
+
+Task 2: Checkot Bnction
+Create a function addToCart tat siuulates adding a product to te sopping cart. Te function sould take
+te product details (naue, price, quantity) as paraueters and trow errors under certain conditionst
+If te product naue is not provided, trow an error indicating Product naue is required.
+If te product price is not a positive nuuber, trow an error indicating Invalid product price.
+If te quantity is not a positive integer, trow an error indicating Invalid quantity.
+
+Create a function ceckout tat siuulates te ceckout process. Tis function sould trow an error if te cart
+is eupty, indicating Cart is eupty. Add iteus before ceckout. -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Question 1</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        box-sizing: border-box;
+      }
+      body {
+        background-color: #414141;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 20px;
+      }
+      h1 {
+        color: azure;
+        text-transform: uppercase;
+        font-size: 50px;
+        margin: 30px 0;
+        padding: 30px 0;
+      }
+      .blink {
+        animation: blinker 1.5s linear infinite;
+        color: red;
+        font-family: sans-serif;
+      }
+
+      @keyframes blinker {
+        50% {
+          opacity: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <marquee
+      width="100%"
+      behavior="scroll"
+      direction="left"
+      class="blink"
+      scrollamount="6"
+      behaviour="alternate"
+      ><h1>Please open console for result.</h1></marquee
+    >
+
+    <img
+      src="https://www.wishesmsg.com/wp-content/uploads/good-day-message.jpg"
+      alt="Have a good day" />
+  </body>
+
+  <script>
+    //Task 1
+    class AuthenticationError extends Error {
+      constructor(message) {
+        super(message);
+        this.name = "AuthenticationError";
+      }
+    }
+
+    const validCredentials = {
+      user1: "password1",
+      user2: "password2",
+    };
+
+    function login(username, password) {
+      if (!username) {
+        throw new AuthenticationError("Username is required");
+      }
+      if (!password) {
+        throw new AuthenticationError("Password is required");
+      }
+      if (validCredentials[username] !== password) {
+        throw new AuthenticationError("Invalid username or password");
+      }
+      return "Login successful";
+    }
+
+    // Example usage:
+    try {
+      console.log(login("user1", "password1")); // Should print "Login successful"
+      console.log(login("", "password1")); // Should throw "Username is required"
+    } catch (error) {
+      if (error instanceof AuthenticationError) {
+        console.error(error.message);
+      }
+    }
+
+    // task 2
+
+    class CartError extends Error {
+      constructor(message) {
+        super(message);
+        this.name = "CartError";
+      }
+    }
+
+    const cart = [];
+
+    function addToCart(productName, price, quantity) {
+      if (!productName) {
+        throw new CartError("Product name is required");
+      }
+      if (price <= 0) {
+        throw new CartError("Invalid product price");
+      }
+      if (quantity <= 0 || !Number.isInteger(quantity)) {
+        throw new CartError("Invalid quantity");
+      }
+
+      cart.push({
+        productName,
+        price,
+        quantity,
+      });
+
+      return "Product added to cart";
+    }
+
+    // Example usage:
+    try {
+      console.log(addToCart("Laptop", 1200, 1)); // Should print "Product added to cart"
+      console.log(addToCart("", 1200, 1)); // Should throw "Product name is required"
+    } catch (error) {
+      if (error instanceof CartError) {
+        console.error(error.message);
+      }
+    }
+
+    // checkout process
+
+    function checkout() {
+      if (cart.length === 0) {
+        throw new CartError("Cart is empty. Add items before checkout.");
+      }
+
+      const totalAmount = cart.reduce(
+        (total, item) => total + item.price * item.quantity,
+        0
+      );
+      return `Checkout successful. Total amount: $${totalAmount.toFixed(2)}`;
+    }
+
+    // Example usage:
+    try {
+      console.log(checkout()); // Should throw "Cart is empty. Add items before checkout."
+    } catch (error) {
+      if (error instanceof CartError) {
+        console.error(error.message);
+      }
+    }
+
+    // Adding an item to the cart and then checking out
+    addToCart("Laptop", 1200, 1);
+    try {
+      console.log(checkout()); // Should print the total amount
+    } catch (error) {
+      if (error instanceof CartError) {
+        console.error(error.message);
+      }
+    }
+  </script>
+</html>

@@ -1,0 +1,98 @@
+<!-- Write an asynchronous function fetchData that uses the Fetch API to retrieve data from a given URL and returns
+the parsed JSON response. -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Assignment 3</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        box-sizing: border-box;
+      }
+      body {
+        background-color: #414141;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 20px;
+      }
+      h1 {
+        color: azure;
+        text-transform: uppercase;
+        font-size: 50px;
+        margin: 30px 0;
+        padding: 30px 0;
+      }
+      .blink {
+        animation: blinker 1.5s linear infinite;
+        color: red;
+        font-family: sans-serif;
+      }
+
+      @keyframes blinker {
+        50% {
+          opacity: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <marquee
+      width="100%"
+      behavior="scroll"
+      direction="left"
+      class="blink"
+      scrollamount="6"
+      behaviour="alternate"
+      ><h1>Please open console for result.</h1></marquee
+    >
+
+    <img
+      src="https://www.wishesmsg.com/wp-content/uploads/good-day-message.jpg"
+      alt="Have a good day" />
+  </body>
+
+  <script>
+    async function fetchData() {
+      const url = "https://jsonplaceholder.typicode.com/todos/1";
+
+      try {
+        // Make a network request to the URL
+        const response = await fetch(url);
+
+        // Check if the request was successful
+        if (!response.ok) {
+          throw new Error(
+            `Network response was not ok: ${response.statusText}`
+          );
+        }
+
+        // Parse and return the JSON response
+        const data = await response.json();
+        return data;
+      } catch (error) {
+        // Handle errors (e.g., network issues, parsing errors)
+        console.error(
+          "There has been a problem with your fetch operation:",
+          error
+        );
+        throw error; // Re-throw the error to be handled by the caller
+      }
+    }
+
+    // Example usage:
+    fetchData()
+      .then((data) => {
+        console.log(data); // Outputs the JSON data from the API
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error); // Handle any errors
+      });
+  </script>
+</html>

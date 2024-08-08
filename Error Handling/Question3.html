@@ -1,0 +1,118 @@
+<!-- You are 8eveloping a payment processing mo8ule for an e-commerce platform. Implement error
+han8ling for the payment transaction process.Create a function processPayment that simulates
+processing a payment transaction. The function shoul8 take payment 8etails (amount, car8 num4er,
+expiration 8ate) as parameters an8 thro! errors un8er certain con8itions
+3 If the payment amount is not a positive num4er, thro! an error in8icating Invali8 payment amount.
+3 If the car8 num4er is not provi8e8 or is not a vali8 cre8it car8 num4er, thro! an error in8icating Invali8
+car8 num4er.
+3 If the expiration 8ate is not provi8e8 or is in the past, thro! an error in8icating Invali8 expiration 8ate. -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Question 2</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        box-sizing: border-box;
+      }
+      body {
+        background-color: #414141;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 20px;
+      }
+      h1 {
+        color: azure;
+        text-transform: uppercase;
+        font-size: 50px;
+        margin: 30px 0;
+        padding: 30px 0;
+      }
+      .blink {
+        animation: blinker 1.5s linear infinite;
+        color: red;
+        font-family: sans-serif;
+      }
+
+      @keyframes blinker {
+        50% {
+          opacity: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <marquee
+      width="100%"
+      behavior="scroll"
+      direction="left"
+      class="blink"
+      scrollamount="6"
+      behaviour="alternate"
+      ><h1>Please open console for result.</h1></marquee
+    >
+
+    <img
+      src="https://www.wishesmsg.com/wp-content/uploads/good-day-message.jpg"
+      alt="Have a good day" />
+  </body>
+
+  <script>
+    // Custom error class for payment errors
+    class PaymentError extends Error {
+      constructor(message) {
+        super(message);
+        this.name = "PaymentError";
+      }
+    }
+
+    // Function to validate credit card number (simple check for demonstration)
+    function isValidCardNumber(cardNumber) {
+      // For simplicity, this example assumes a valid card number is a non-empty string of digits
+      return /^\d+$/.test(cardNumber);
+    }
+
+    // Function to validate expiration date
+    function isValidExpirationDate(expirationDate) {
+      const now = new Date();
+      const [month, year] = expirationDate.split("/").map(Number);
+      const expiration = new Date(year, month - 1); // month - 1 because months are 0-indexed
+      return expiration > now;
+    }
+
+    // Function to process payment
+    function processPayment(amount, cardNumber, expirationDate) {
+      if (amount <= 0) {
+        throw new PaymentError("Invalid payment amount");
+      }
+      if (!cardNumber || !isValidCardNumber(cardNumber)) {
+        throw new PaymentError("Invalid card number");
+      }
+      if (!expirationDate || !isValidExpirationDate(expirationDate)) {
+        throw new PaymentError("Invalid expiration date");
+      }
+
+      // Simulate payment processing
+      return "Payment processed successfully";
+    }
+
+    // Example usage
+    try {
+      console.log(processPayment(100, "1234567812345678", "08/2025")); // Should print "Payment processed successfully"
+      console.log(processPayment(-50, "1234567812345678", "08/2025")); // Should throw "Invalid payment amount"
+    } catch (error) {
+      if (error instanceof PaymentError) {
+        console.error(error.message);
+      } else {
+        console.error("An unexpected error occurred:", error);
+      }
+    }
+  </script>
+</html>

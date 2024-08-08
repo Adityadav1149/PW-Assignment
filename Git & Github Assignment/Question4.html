@@ -1,0 +1,129 @@
+<!-- Ceate a ew bach amed featue-update
+ Switch to the ew bach ad make chages to scipt.js
+ Commit the chages i the featue bach
+ Switch back to the mai bach ad make diffeet chages to scipt.js
+ Commit the chages i the mai bach
+ Attempt to mege featue-update ito the mai bach
+ Resolve ay mege coflicts that occu.-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Question 4</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        box-sizing: border-box;
+      }
+      body {
+        background-color: #414141;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 20px;
+      }
+      h1 {
+        color: azure;
+        text-transform: uppercase;
+        font-size: 50px;
+        margin: 30px 0;
+        padding: 30px 0;
+      }
+      .blink {
+        animation: blinker 1.5s linear infinite;
+        color: red;
+        font-family: sans-serif;
+      }
+
+      @keyframes blinker {
+        50% {
+          opacity: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <marquee
+      width="100%"
+      behavior="scroll"
+      direction="left"
+      class="blink"
+      scrollamount="6"
+      behaviour="alternate"
+      ><h1>Please open console for result.</h1></marquee
+    >
+
+    <img
+      src="https://www.wishesmsg.com/wp-content/uploads/good-day-message.jpg"
+      alt="Have a good day" />
+  </body>
+
+  <script>
+    // task 1. create a new branch named 'feature-update'
+    //-------------------------------------
+
+    //git checkout -b feature-update
+
+    //task 2. switch to the new branch and make changes to 'script.js'
+    //----------------------------------------
+    //script.js
+    function updateGreeting(name) {
+      console.log(`Updated greeting for ${name}`);
+    }
+
+    updateGreeting("Alice");
+
+    //git add script.js
+    // git commit -m "Add updateGreeting function in feature-update branch"
+
+    //task 3 switch back to the main brach and make different changes to 'script.js'
+    //-------------------------------------
+
+    //git checkout main
+    // script.js
+    function greet(name) {
+      console.log(`Hello, ${name}! Welcome to our site.`);
+    }
+
+    greet("World");
+
+    //git add script.js
+    // git commit -m "Update greet function in main branch"
+
+    //task 4
+    //------------------------------------------
+    //git checkout main
+    //git merge feature-update
+
+    //task 5
+    //---------------------------------
+
+    function greet(name) {
+      console.log(`Hello, ${name}! Welcome to our site.`);
+    }
+    //=======
+    function updateGreeting(name) {
+      console.log(`Updated greeting for ${name}`);
+    }
+
+    updateGreeting("Alice");
+
+    function greet(name) {
+      console.log(`Hello, ${name}! Welcome to our site.`);
+    }
+
+    function updateGreeting(name) {
+      console.log(`Updated greeting for ${name}`);
+    }
+
+    updateGreeting("Alice");
+
+    // git add script.js
+    //git commit -m "Resolve merge conflicts between feature-update and main"
+  </script>
+</html>

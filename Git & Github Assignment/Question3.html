@@ -1,0 +1,114 @@
+<!-- Task-§
+¤ Create a GitHub repository for your JavaScript project.
+Task-2§
+¤ Push your local repository to the GitHub repository.
+Task-3§
+¤ Invite a team member to collaborate on the GitHub repository.
+Task-4§
+¤ Your team member should clone the repository and make a change.
+Task-5§
+¤ Fetch and merge the changes made by your team member.-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Question 3</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        box-sizing: border-box;
+      }
+      body {
+        background-color: #414141;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 20px;
+      }
+      h1 {
+        color: azure;
+        text-transform: uppercase;
+        font-size: 50px;
+        margin: 30px 0;
+        padding: 30px 0;
+      }
+      .blink {
+        animation: blinker 1.5s linear infinite;
+        color: red;
+        font-family: sans-serif;
+      }
+
+      @keyframes blinker {
+        50% {
+          opacity: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <marquee
+      width="100%"
+      behavior="scroll"
+      direction="left"
+      class="blink"
+      scrollamount="6"
+      behaviour="alternate"
+      ><h1>Please open console for result.</h1></marquee
+    >
+
+    <img
+      src="https://www.wishesmsg.com/wp-content/uploads/good-day-message.jpg"
+      alt="Have a good day" />
+  </body>
+
+  <script>
+    //task 1
+    //     Go to GitHub and log in to your account.
+
+    // Create a new repository:
+
+    // Click the + icon in the upper-right corner of the GitHub page and select New repository.
+    // Enter a repository name (e.g., my-js-project).
+    // Add a description (optional).
+    // Choose Public or Private depending on your preference.
+    // Do not initialize with a README, .gitignore, or license (since you already have a local repository).
+    // Click Create repository.
+
+    // tast 2
+
+    //git remote add origin https://github.com/yourusername/my-js-project.git
+
+    //git push -u origin main
+
+    //task 3
+
+    // Go to your GitHub repository page.
+
+    // Navigate to the "Settings" tab.
+
+    // Click on "Collaborators & teams" (or "Manage access" in some interfaces).
+
+    // Click on "Invite a collaborator".
+
+    // Enter your team member's GitHub username or email address and click Add.
+
+    // Your team member will receive an invitation to collaborate on your repository.
+
+    // task 4
+    //git clone https://github.com/yourusername/my-js-project.git
+    //cd my-js-project
+    //git add script.js
+    // git commit -m "Add a new feature"
+
+    //git push origin main
+
+    //task 5
+    //git fetch origin
+    //git merge origin/main
+  </script>
+</html>
